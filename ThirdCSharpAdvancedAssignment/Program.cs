@@ -99,5 +99,57 @@
             Console.WriteLine("Score: " + item.Key + " - Player: " + item.Value);
         }
         #endregion
+        Console.WriteLine();
+        Console.WriteLine();
+
+        #region Third Ex
+        Dictionary<string, string> phoneBook = new Dictionary<string, string>();
+
+        phoneBook.Add("Ahmed", "01011111111");
+        phoneBook.Add("Sara", "01022222222");
+        phoneBook.Add("Ali", "01033333333");
+        phoneBook.Add("Mona", "01044444444");
+
+        phoneBook["Omar"] = "01055555555";
+
+        try
+        {
+            phoneBook.Add("Ahmed", "01099999999");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+
+        bool result = phoneBook.TryAdd(
+            "Ahmed",
+            "01099999999"
+        );
+
+        Console.WriteLine("TryAdd succeeded? " + result);
+
+        bool isExists = phoneBook.ContainsKey("Khaled");
+
+        Console.WriteLine("Khaled exists? " + isExists);
+
+        string phone;
+
+        if (phoneBook.TryGetValue("Khaled", out phone))
+        {
+            Console.WriteLine(phone);
+        }
+        else
+        {
+            Console.WriteLine("Not Found");
+        }
+
+        Console.WriteLine("Keys:");
+        Console.WriteLine(string.Join(", ", phoneBook.Keys));
+
+        Console.WriteLine("Values:");
+        Console.WriteLine(string.Join(", ", phoneBook.Values));
+
+
+        #endregion
     }
 }
