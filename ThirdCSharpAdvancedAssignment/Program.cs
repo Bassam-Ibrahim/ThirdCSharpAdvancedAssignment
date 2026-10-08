@@ -206,5 +206,33 @@
         Console.WriteLine(
             "{1,2} is subset of Set A? " + Result);
         #endregion
+        Console.WriteLine();
+        Console.WriteLine();
+        #region Fifth Ex
+        Queue<string> queue = new Queue<string>();
+
+        queue.Enqueue("Report.pdf");
+        queue.Enqueue("Invoice.pdf");
+        queue.Enqueue("Letter.docx");
+        queue.Enqueue("Resume.pdf");
+        queue.Enqueue("Photo.jpg");
+
+        Console.WriteLine("Queue:");
+        foreach (string document in queue) Console.WriteLine(document);
+
+        Console.WriteLine("Count: " + queue.Count);
+        Console.WriteLine("Next document: " + queue.Peek());
+
+        while (queue.Count > 0)
+        {
+            string document = queue.Dequeue();
+            Console.WriteLine("Printing: " + document);
+        }
+
+        string Result2;
+        bool success = queue.TryDequeue(out Result2);
+        Console.WriteLine("TryDequeue succeeded? " + success);
+
+        #endregion
     }
 }
