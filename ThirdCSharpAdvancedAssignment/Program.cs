@@ -54,8 +54,50 @@
             Console.WriteLine(grade);
         }
 
+        Console.WriteLine();
+        Console.WriteLine();
 
+        #endregion
 
+        #region Second Ex
+        SortedDictionary<int, string> leaderboard = new SortedDictionary<int, string>();
+
+        leaderboard.Add(500, "Ahmed");
+        leaderboard.Add(200, "Sara");
+        leaderboard.Add(800, "Ali");
+        leaderboard.Add(350, "Mona");
+
+        foreach (var playyer in leaderboard)
+        {
+            Console.WriteLine("Score: " + playyer.Key + " - Player: " + playyer.Value);
+        }
+
+        var first = leaderboard.First();
+
+        Console.WriteLine("First Key: " + first.Key);
+        Console.WriteLine("First Value: " + first.Value);
+
+        bool exists = leaderboard.ContainsKey(500);
+
+        Console.WriteLine("Score 500 exists? " + exists);
+
+        if (leaderboard.TryGetValue(999, out string player))
+        {
+            Console.WriteLine("Player: " + player);
+        }
+        else
+        {
+            Console.WriteLine("Score 999 not found");
+        }
+
+        leaderboard.Remove(200);
+
+        Console.WriteLine("Updated Leaderboard:");
+
+        foreach (var item in leaderboard)
+        {
+            Console.WriteLine("Score: " + item.Key + " - Player: " + item.Value);
+        }
         #endregion
     }
 }
